@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.box1 h1 {
+    font-size: 32px;
+    letter-spacing: -1.2px;
+    background: #2f2e41;
+    background: linear-gradient(90deg, #544dcf 0%, #2f2e41);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.containerII {
+    width: 100%;
+    height: 800px;
+    margin-top: 120px;
+}
+
+.innerContainer {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    padding: 60px 40px;
+    border-radius: 10px;
+    gap: 40px;
+}
+
+.box1 {
+    width: 50%;
+    position: relative;
+}
+
+.box2 {
+    width: 50%;
+}
+
+.box2 img {
+    width: 100%;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+    margin-top: 15px;
+}
+
+input {
+    padding: 8px 10px;
+    width: 100%;
+    margin: 5px auto;
+    border: 1px solid rgb(193, 193, 193);
+    border-radius: 3px;
+    color: #222;
+}
+
+select {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid rgb(193, 193, 193);
+    border-radius: 3px;
+}
+
+#submit {
+    margin-top: 30px;
+    background-color: #6C66E6;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+}
+
+#submit:hover {
+    background-color: #544dcf;
+}
+
+.link {
+    margin-top: 40px;
+    color: #555;
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 600px) {
+    .box1 h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .innerContainer {
+        width: 90%;
+        padding: 20px 40px 60px;
+    }
+
+    .box1 {
+        width: 100%;
+    }
+
+    .box2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 400px) {
+    .box1 h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .innerContainer {
+        width: 100%;
+        padding: 30px 20px 100px;
+        border-radius: 0;
+    }
+
+    .box1 {
+        width: 100%;
+    }
+
+    .box2 {
+        display: none;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input {
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 200px) {
+    .box1 h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .innerContainer {
+        width: 100%;
+        padding: 30px 20px 80px;
+        border-radius: 0;
+    }
+
+    .box1 {
+        width: 100%;
+    }
+
+    .box2 {
+        display: none;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input {
+        padding: 5px;
+        font-size: 14px;
+    }
+}

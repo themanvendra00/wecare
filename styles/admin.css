@@ -1,0 +1,242 @@
+html,body{
+    height:100%;
+    margin:0px
+}
+*{
+    font-family: 'Roboto', sans-serif;
+}
+#nav{
+    text-align: center;
+    background: linear-gradient(90deg, rgba(89, 79, 234, 1) 0%, rgba(163, 50, 157, 1) 99%);
+    color:rgb(242, 225, 225);
+    padding:3px;
+    
+}
+
+
+#after-nav{
+    display:flex;
+    height: 100vh;
+
+}
+
+#after-nav-col-1{
+    width:20%;
+        
+    background: linear-gradient(90deg, rgba(89, 79, 234, 1) 10%, rgba(163, 50, 157, 1) 94%);
+    
+    height:100%;
+    color: rgb(242, 225, 225);
+}
+
+#after-nav-col-2{
+    width:80%;
+   
+}
+
+.remove{
+    width:80%;
+    display: flex;
+    
+    justify-content: center;
+}
+
+.appprov{
+    width:80%;
+    display: flex;
+    
+    justify-content: center;
+}
+.row{
+    border-bottom: 1px solid #c6c6c6;
+    padding:4px;
+    box-shadow: rgba(72, 0, 255, 0.2) 0px 7px 29px 0px;
+    
+   transition:  transform 0.5s
+}
+.row h2{
+    color: rgb(221, 221, 221);
+    margin-left: 10px;
+}
+table{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.row:hover{
+    transform:translateY(-10px);
+    
+  }
+
+#dog-image{
+    margin-top: 200px;
+}
+#dog-image img{
+    width:500px
+}
+a{
+    text-decoration: none;
+}
+
+.remove-doctor{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+#rm-row-1{
+    margin-left: 30%;
+    font-size: 30px;
+}
+
+#rm-row-2{
+    margin-left:40%;
+    margin-top: 20px;
+}
+#remove-input{
+    height:50px;
+    width:200px
+}
+.add-doctor{
+    width:80%
+}
+
+.add-form{
+    margin-top: 30px;
+    border: 3px solid rgb(120, 120, 245);
+    border-radius: 20px;
+    
+    width:400px
+}
+
+.heading{
+    background-color: rgb(120, 120, 245);
+    border-radius: 20px;
+    padding:1px
+}
+
+.ad-row{
+    margin:20px;
+    font-size: 20px;
+}
+.add-form input{
+    width:300px;
+    height:30px;
+    border-radius:10px
+}
+
+.side-part{
+    
+   
+  background-color: rgb(255, 255, 255);
+    /* Full height */
+    /* height: 100vh; */
+    max-height: 200000000px;
+    min-height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    
+}
+
+
+
+.btn{
+    border-radius: 20px;
+    padding:8px;
+    
+    background: linear-gradient(90deg, rgba(228, 70, 144, 1) 0%, rgba(89, 79, 234, 1) 100%)
+}
+
+#title{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+table{
+    border:2px solid rgba(89, 79, 234, 1);
+    width:60%;
+    margin-top: 5%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom: 15%;
+    border-radius: 5px;
+    
+}
+tr{
+    border: 2px solid white;
+    
+}
+td,th{
+    padding: 1%;
+}
+
+.accept{
+    background-color: green;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    transition: .5s;
+}
+.accept:hover{
+    background-color: rgb(11, 66, 11);
+    transform: scale(1.1);
+}
+.reject:hover{
+    background-color: rgb(80, 13, 13);
+    transform: scale(1.1);
+
+}
+.reject{
+    background-color: rgb(200, 24, 24);
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    transition: .5s;
+}
+
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: rgba(89, 79, 234, 1);
+    color: white;
+    padding: 18px;
+}
+
+
+select{
+    border-radius: 10px;
+    width:200px;
+    height:30px
+}
+
+#chek{
+    display: flex;
+    
+}
+
+.chekin{
+    margin-left:20px
+}

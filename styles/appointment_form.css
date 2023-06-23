@@ -1,0 +1,52 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    margin-top: 100px;
+    padding: 2%;
+} 
+.heading{
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+form{
+    padding: 5%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.form_btn{
+    background: #544DCF;
+    border: 2px solid #544DCF;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.form_btn:hover{
+    background: rgb(97, 21, 167);
+    border:2px solid rgb(97, 21, 167);
+}
+
+/* #img_box{
+    background-image: url("https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg?fit=696,463");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
+
+.col-md-6 img{
+    margin-top: 11%;
+    width: 100%;
+    height:90%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width:766px){
+    #img_box{
+        display: none;
+    }
+}

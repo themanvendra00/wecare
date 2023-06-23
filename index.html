@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Patient Appointment Booking System</title>
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+
+    <!-- ======================================= Fontawesome ========================================== -->
+    <script src="https://kit.fontawesome.com/f584623432.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div id="navbar"></div>
+
+
+    <!-- =========================================== Hero Section =========================================== -->
+
+    <div class="hero-section">
+        <div class="hero-section-div">
+            <h5>On-demand</h5>
+            <h1>Online medical assistance.</h1>
+            <p>Make healthcare convenient, efficient, and accessible with our state-of-the-art appointment booking
+                platform. Join us today and experience healthcare made easy.</p>
+            <div id="redirectBtn"></div>
+        </div>
+        <div class="hero-section-img">
+
+        </div>
+    </div>
+
+
+    <!-- ================================== Book with confidence Section ==================================== -->
+
+    <div class="book-with-confidence">
+        <div class="book-with-confidence-innerText">
+            <p><span>Book with confidence. </span> Licensed Doctors* to help you manage your health.</p>
+        </div>
+        <div class="book-with-confidence-innerDiv">
+            <div class="book-card">
+                <img src="./assets/Woman-booking-appointment.png" alt="">
+                <h3>Streamlined Appointment Booking</h3>
+                <p>Our user-friendly interface allows patients to effortlessly book appointments with their preferred
+                    doctors. With just a few clicks, you can schedule an appointment that fits your schedule, saving you
+                    time and effort.</p>
+            </div>
+            <div class="book-card">
+                <img src="./assets/Comprehensive Doctor Profiles.png" alt="">
+                <h3>Comprehensive Doctor Profiles</h3>
+                <p>Gain valuable insights into doctors' qualifications, specialties, and patient reviews. Make informed
+                    decisions based on the information provided, ensuring you find the right healthcare professional for
+                    your needs.</p>
+            </div>
+            <div class="book-card">
+                <img src="./assets/Video-call.png" alt="">
+                <h3>Real-Time Availability:</h3>
+                <p>Say goodbye to back-and-forth communication. We provides real-time availability information, enabling
+                    patients to view doctors' open slots and book appointments instantly.</p>
+            </div>
+        </div>
+        <p>Video chat appointments will be facilitated with a doctors licensed in all over the world. Prescriptions and
+            diagnosis are not available.</p>
+    </div>
+
+
+    <!-- ================================== Banner Section ==================================== -->
+
+    <div class="banner-div flex">
+        <div>
+            <img src="https://cloud.vetster.com/images/vetster-phone-vet.svg" alt="">
+        </div>
+        <div class="banner-innerDiv">
+            <h3>What can online medical assistance help you with?</h3>
+            <p>Doctors from all over the world can talk you through a variety of health issues and offer
+                guidance for taking care of your health. Our doctors can work with new and existing patients
+                to understand health and wellness issues, and in some cases they may suggest over-the-counter products,
+                or provide you with peace of mind knowing your health is in good hands.</p>
+        </div>
+    </div>
+
+    <!-- ========================================== Pet connection section ==================================== -->
+
+    <div class="pet-connection">
+        <h1>Our Blogs</h1>
+        <div class="pet-connection-innerDiv">
+            <p>Explore our curated collection of health related telehealth & news, articles and blog posts. <span>Read
+                    resources now →</span> </p>
+        </div>
+
+        <div class="grid">
+            <div class="grid-card">
+                <img src="https://gumlet.assettype.com/freepressjournal/2023-05/85c04ee7-ac1e-4301-b91f-8b1459cbb023/Untitled_design___2023_05_11T162838_268.png"
+                    alt="">
+                <div>
+                    <span>BLOG</span>
+                    <h3>5 Essential Tips for a Balanced Lifestyle</h3>
+                    <p>Maintaining good health is crucial for living a fulfilling and productive life. In this blog
+                        post, we'll explore five essential tips to help you achieve a balanced lifestyle and take
+                        control of your overall health.</p>
+
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://www.verywellmind.com/thmb/KcAt1iT48tlfgmQhsxfrcoU0e08=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1297758187-f4fda9215edc4b7ba0040dbb77d970e9.jpg"
+                    alt="">
+                <div>
+                    <span>BLOG</span>
+                    <h3>Importance of Mental Health</h3>
+                    <p>In this blog post, we delve into the critical topic of mental health and its significance in our
+                        lives. We explore the impact of mental health on overall well-being, discuss common mental
+                        health conditions, and etc.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://food.ok.ubc.ca/wp-content/uploads/2019/06/blog-5-simple-tips-to-unlock-the-power-of-food-1920x962.jpg"
+                    alt="">
+                <div>
+                    <span>WELLNESS</span>
+                    <h3>Unlocking the Power of Nutrition</h3>
+                    <p>This blog post focuses on the vital role of nutrition in maintaining good health. We explore the
+                        connection between food choices and various health conditions, including heart disease,
+                        diabetes, and obesity. </p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer start -->
+    <div id="footer"></div>
+
+</body>
+
+</html>
+
+<script src="./scripts/index.js" type="module"></script>
