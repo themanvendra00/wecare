@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>View Appointments | Patient | WeCare</title>
     <link rel="stylesheet" href="styles/appointment_list.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="shortcut icon" href="./assets/icons8-guide-dog-48.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -25,13 +25,16 @@
     <!-- Appointments List -->
     <h2 id="title">Appointment List</h2>
     <div id="filter_box">
-        <p>Filter by status</p>
-        <select id="filter">
-            <option value="">Please select...</option>
-            <option value="approved">Approved</option>
-            <option value="pending">Pending</option>
-            <option value="rejected">Rejected</option>
-        </select>
+        <div>
+            <p>Filter by status</p>
+            <select id="filter">
+                <option value="">Please select...</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="rejected">Rejected</option>
+            </select>
+        </div>
+        <button><a href="./videosharing/frontend/index.html">Connect</a></button>
     </div>
     <table>
         <thead>

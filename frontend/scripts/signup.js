@@ -46,7 +46,7 @@ logo.addEventListener("click", () => {
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
   let name = document.getElementById("name").value;
-  let age = document.getElementById("age").value;
+  let dob = document.getElementById("age").value;
   let gender = document.getElementById("gender").value;
   let contact = document.getElementById("contact").value;
   let email = document.getElementById("email").value;
@@ -54,14 +54,15 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
   let registerDetails = {
     name,
-    age,
+    dob,
     gender,
     contact,
     email,
     password,
   };
 
-  fetch("https://important-toad-pajamas.cyclic.app/user/register", {
+
+  fetch("https://misty-poncho-cod.cyclic.app/user/register", {
     method: "POST",
     body: JSON.stringify(registerDetails),
     headers: {
@@ -71,7 +72,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.mess);
-      if (data.mess === "User exist") {
+      if (data.message === "User Already Exist") {
         Toast.fire({
           icon: "warning",
           title: "Already a user, Plaese login!",

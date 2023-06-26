@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/icons8-guide-dog-48.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./styles/signup.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/navbar.css">
@@ -13,27 +13,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f584623432.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Admin-Login | Vetcare</title>
+    <title>Sign Up | Patient | WeCare</title>
     <style>
-        #footer {
-            margin-top: -200px;
-        }
-
-        @media only screen and (max-width: 1400px) and (min-width: 1000px) {
-            #footer {
-                margin-top: -250px;
-            }
-        }
-
-        @media only screen and (max-width: 1000px) and (min-width: 600px) {
-            #footer {
-                margin-top: -340px;
-            }
-        }
-
         @media only screen and (max-width: 600px) and (min-width: 200px) {
             #footer {
-                margin-top: -340px;
+                margin-top: 0px;
             }
         }
     </style>
@@ -47,25 +31,38 @@
 
         <div class="innerContainer">
             <div class="box1">
-                <h1>Admin Login</h1>
+                <h1>Create your account now !</h1>
                 <form action="">
+                    <label for="">Name</label>
+                    <input type="text" placeholder="Enter name" id="name" required>
+                    <label for="age">Date of Birth</label>
+                    <input type="date" id="age" required>
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="">Contact No.</label>
+                    <input type="number" placeholder="Enter contact no." id="contact">
                     <label for="">Email</label>
-                    <input type="email" placeholder="Enter email" id="email">
+                    <input type="email" placeholder="Enter email" id="email" required>
                     <label for="">Password</label>
-                    <input type="password" placeholder="Enter password" id="password">
+                    <input type="password" placeholder="Enter password" id="password" required>
                     <input type="submit" id="submit">
+                    <p class="link">Already have an account? <a href="./login.html">Login</a></p>
                 </form>
             </div>
             <div class="box2">
-                <img src="./assets/Petting.svg" alt="">
+                <img src="./assets/signup.png" alt="">
             </div>
         </div>
     </div>
 
     <!-- Footer start -->
-    <div id="footer"></div>
+    <div id="footer" style="margin-top: 140px;"></div>
 </body>
 
 </html>
 
-<script src="./scripts/admin_login.js" type="module"></script>
+<script src="./scripts/signup.js" type="module"></script>

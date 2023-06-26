@@ -36,27 +36,57 @@ th {
 
 #filter_box {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
     margin: auto;
-    text-align: center;
-    margin-left: 10%;
-    font-weight: bold;
-
 }
 
-#filter_box>p {
-    margin-right: 10px;
+#filter_box div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#filter_box div p {
     margin: 3px;
+    font-weight: bold;
 }
 
-#filter_box>select {
+#filter_box div select {
     border: 1px solid grey;
-    border-radius: 5px;
-    height: 30px;
     padding: 4px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 0 10px;
+} 
+
+#filter_box button{
+    padding: 6px 20px;
+    background-color: #544dcf;
+    border: none;
 }
 
+#filter_box button a{
+    text-decoration: none;
+    color: #fff;
+}
 
+#filter_box button:hover{
+    background-color: #221e74;
+    scale: 1.1;
+}
+
+.btn3{
+    padding: 4px 10px;
+    border: 0;
+}
+
+.accept {
+    background-color: aquamarine;
+}
+.reject{
+    background-color: rgb(255, 113, 113);
+}
 
 @media (max-width: 550px) {
     table {

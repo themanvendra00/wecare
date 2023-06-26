@@ -24,27 +24,28 @@ logo.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+let token = JSON.parse(localStorage.getItem("token")) || null;
+
 let form = document.querySelector("form");
 
 form.addEventListener("submit", getAppointment);
 
 // function to post a appointment
-
 async function getAppointment(event) {
   event.preventDefault();
   let name = document.getElementById("name").value;
   let Email = JSON.parse(localStorage.getItem("userDetails"));
-  let phone = document.getElementById("phone").value;
+  let gender = document.getElementById("gender").value;
+  let contact = document.getElementById("phone").value;
   let date = document.getElementById("date").value;
   let time = document.getElementById("time").value;
   let doctor = document.getElementById("doctor").value;
   let symtoms = document.getElementById("symptoms").value;
-  let gender = document.getElementById("gender").value;
 
   if (
     name == "" ||
     Email == "" ||
-    phone == "" ||
+    contact == "" ||
     date == "" ||
     time == "" ||
     doctor == "" ||
@@ -53,58 +54,54 @@ async function getAppointment(event) {
   ) {
     Toast.fire({
       icon: "warning",
-      title: "Please Login again",
+      title: "Please fill all the details",
     });
   } else {
     let appointment = {
       name: name,
       email: Email.email,
-      phone: phone,
+      contact: contact,
       date: date,
       time: time,
       doctor: doctor,
       symtoms: symtoms,
       gender: gender,
     };
-    // let key ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDI1NjcwYzRmZjJhY2RlYTRmZDQ0MWUiLCJpYXQiOjE2ODAxNzI4MzN9.WPSwGoSicD9yx25IxL1lkd1a8SnwzkicUTn_WvS6itA"
+
+    console.log(appointment)
     let Data = JSON.parse(localStorage.getItem("userDetails"));
     let email = Data.email;
-    let response = await fetch(
-      "https://important-toad-pajamas.cyclic.app/appointment/create",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // "Authorization":`${key}`,
-          email: `${email}`,
-        },
-        body: JSON.stringify(appointment),
-      }
-    );
+    let response = await fetch("https://misty-poncho-cod.cyclic.app/appointment/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(appointment),
+    });
     let data = await response.json();
-    if (data == "Please Login again") {
+    if (data.message == "Please Login Again") {
       Toast.fire({
         icon: "warning",
-        title: "Please Login again!",
+        title: "Please Login Again!",
       });
 
       setTimeout(function () {
         window.location.href = "login.html";
       }, 2000);
-    } else if (data == "Appointment Created") {
-      Toast.fire({
-        icon: "success",
-        title: "Appointment created!",
-      });
-
-      setTimeout(function () {
-        window.location.href = "appointment_list.html";
-      }, 2000);
-    } else {
+    } else if (data.message == "Slot Not Available") {
       Toast.fire({
         icon: "error",
         title: "Slot Not Available, Try a diffrent time slot!",
       });
+    } else {
+      Toast.fire({
+        icon: "success",
+        title: "Appointment Created!",
+      });
+      setTimeout(function () {
+        window.location.href = "appointment_list.html";
+      }, 2000);
     }
   }
 }

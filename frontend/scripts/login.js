@@ -54,7 +54,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
     password,
   };
 
-  fetch("https://important-toad-pajamas.cyclic.app/user/login", {
+  fetch("https://misty-poncho-cod.cyclic.app/user/login", {
     method: "POST",
     body: JSON.stringify(loginDetails),
     headers: {
@@ -64,18 +64,19 @@ document.querySelector("form").addEventListener("submit", (event) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data == "Wrong Credentials") {
+      if (data.message == "Invalid Email or Password") {
         Toast.fire({
           icon: "error",
-          title: "Wrong Credentials",
+          title: "Invalid Email or Password",
         });
-      } else if (data == "Please Login again") {
+      } else if (data.message == "User not found") {
         Toast.fire({
           icon: "warning",
-          title: "Please Login again",
+          title: "User not found",
         });
       } else {
         localStorage.setItem("userDetails", JSON.stringify(data.User));
+        localStorage.setItem("token", JSON.stringify(data.token));
         localStorage.setItem("userDetailsforadmin", JSON.stringify(data.User));
         Toast.fire({
           icon: "success",

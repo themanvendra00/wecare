@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remove Veterinarian</title>
+    <title>Remove Doctor | Admin | WeCare</title>
     <link rel="stylesheet" href="styles/admin.css">
-    <link rel="shortcut icon" href="./assets/icons8-guide-dog-48.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
     </style>
 </head>
 
@@ -20,17 +20,17 @@
 
             <div class="row">
                 <a href="./admin.html">
-                    <h2>Manage Appointments</h2>
+                    <h2>Appointments</h2>
                 </a>
             </div>
             <div class="row">
                 <a href="./add-doctor.html">
-                    <h2>Add Veterinarian</h2>
+                    <h2>Add Doctor</h2>
                 </a>
             </div>
             <div class="row">
                 <a href="./remove-doctor.html">
-                    <h2>Remove Veterinarian</h2>
+                    <h2>Remove Doctor</h2>
                 </a>
             </div>
             <div class="row">
@@ -42,9 +42,8 @@
             <div>
                 <div class="add-form">
                     <div class="heading">
-                        <h1>Remove Veterinarian</h1>
+                        <h1>Remove Doctor</h1>
                     </div>
-
                     <div class="ad-row">
                         <label>ID:</label>
                         <input placeholder="Name" id="name" />
@@ -52,10 +51,6 @@
                     <div class="ad-row">
                         <button id="btn2" class="remove-btn btn">REMOVE</button>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
@@ -66,35 +61,29 @@
                 event.preventDefault();
                 let all_input = document.querySelector(".add-form input")
                 let name = all_input.value;
-
                 getid(name);
-
             })
 
             async function getid(name) {
                 try {
-                    let res = await fetch("https://vetcare-89zg.onrender.com/doctor/getDocID", {
+                    let res = await fetch("https://misty-poncho-cod.cyclic.app/doctor/getDocID", {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
                             "name": `${name}`
-
                         },
-
                     })
                     let data = await res.json();
                     let id = data.ID
                     dellete(id)
-
                 } catch (error) {
                     console.log(error);
                 }
             }
 
             function dellete(id) {
-                fetch(`https://vetcare-89zg.onrender.com/doctor/delete/?${id}`, {
+                fetch(`https://misty-poncho-cod.cyclic.app/doctor/delete/?${id}`, {
                     method: "DELETE",
-
                 })
                     .then(res => res.json())
                     .then(res => {
@@ -103,10 +92,6 @@
                     })
                     .catch((err) => console.log(err))
             }
-
-
-
-
         </script>
 </body>
 

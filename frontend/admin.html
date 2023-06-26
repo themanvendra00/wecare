@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments | Admin | WeCare</title>
+    <link rel="stylesheet" href="./styles/admin.css">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div id="nav">
+        <a href="./index.html">
+            <h1 style="color: white;">Admin panel</h1>
+        </a>
+    </div>
+    <div id="after-nav">
+        <div id="after-nav-col-1">
+
+            <div class="row">
+                <a href="./admin.html">
+                    <h2>Appointments</h2>
+                </a>
+            </div>
+            <div class="row">
+                <a href="./add-doctor.html">
+                    <h2>Add Doctor</h2>
+                </a>
+            </div>
+            <div class="row">
+                <a href="./remove-doctor.html">
+                    <h2>Remove Doctor</h2>
+                </a>
+            </div>
+            <div class="row">
+                <a href="./videosharing/frontend/index.html">
+                    <h2>Virtual Meet</h2>
+                </a>
+            </div>
+        </div>
+
+        <div id="after-nav-col-2" class="side-part appointment all-appoint">
+            <div id="chek">
+                <div class="chekin">
+                    <label>
+                        <h2>Status:</h2>
+                    </label>
+                    <select id="myselect">
+                        <option value="">Select Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="chekin">
+                    <label>
+                        <h2>Doctor:</h2>
+                    </label>
+                    <select id="mydoctor">
+
+                    </select>
+                </div>
+            </div>
+            <table id="customers">
+                <thead>
+                    <tr>
+                        <th scope="col">Appointment Id</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Doctor</th>
+                        <th scope="col">Room ID</th>
+                    </tr>
+                </thead>
+                <tbody id="appointment">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./scripts/mange-appointment.js"></script>
+</body>
+
+</html>
+
+<script>
+    let doctors = fetch("https://misty-poncho-cod.cyclic.app/doctor/").then(res => res.json()).then(data => {
+        let select = document.getElementById("mydoctor");
+        select.innerHTML = "";
+        data.forEach(option => {
+
+            const optionElement = document.createElement('option');
+            optionElement.value = option.name;
+            optionElement.textContent = option.name;
+            select.appendChild(optionElement);
+
+        });
+    }).catch(error => {
+        console.error('Error fetching options:', error);
+    });
+</script>

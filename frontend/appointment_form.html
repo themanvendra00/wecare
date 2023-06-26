@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Book Appointment</title>
+    <title>Book Appointment | Patient | WeCare</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="./assets/icons8-guide-dog-48.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="styles/appointment_form.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="./styles/navbar.css">
@@ -44,13 +44,18 @@
                     <!---->
                     <div class="form-group row">
                         <label class="col-sm-4">
-                            Email
+                            Gender
                         </label>
                         <div class="col-sm-8 col-lg-8">
-                            <input type="email" id="email" class="form-control" placeholder="Enter email" required>
+                            <select name="gender" id="gender" class="form-control" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
                         </div>
                     </div>
                     <!---->
+
                     <div class="form-group row">
                         <label class="col-sm-4">
                             Contact No.
@@ -63,28 +68,27 @@
                     <!---->
                     <div class="form-group row">
                         <label class="col-sm-4">
-                            Doctor Name
+                            Specialization
                         </label>
                         <div class="col-sm-8 col-lg-8">
-                            <select name="doctor" id="doctor" class="form-control" required>
-                                <option value="">Select doctor</option>
-                                <option value="pardeep gupta">Dr.Pardeep Gupta</option>
-                                <option value="subhash mittal">Dr. Subhash Mittal</option>
-                                <option value="gaurav sharma">Dr. Gaurav Sharma</option>
-                                <option value="vivek jindal">Dr. Vivek Jindal</option>
+                            <select name="specialization" id="specialization" class="form-control" onchange="filter()">
+                                <option value="">select specialization</option>
+                                <option value="anesthesiology">Anesthesiology</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="Neurologist">Neurologist</option>
+                                <option value="Surgeon">Surgeon</option>
                             </select>
                         </div>
                     </div>
                     <!---->
                     <div class="form-group row">
                         <label class="col-sm-4">
-                            Gender
+                            Doctor Name
                         </label>
                         <div class="col-sm-8 col-lg-8">
-                            <select name="gender" id="gender" class="form-control" required>
-                                <option value="">Select gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                            <select name="doctor" id="doctor" class="form-control" required>
+                                <option value="">select doctor</option>
                             </select>
                         </div>
                     </div>
@@ -103,7 +107,19 @@
                             Time
                         </label>
                         <div class="col-sm-8 col-lg-8">
-                            <input type="time" id="time" class="form-control">
+                            <select name="time" id="time" class="form-control" required>
+                                <option value="">select time slot</option>
+                                <option value="12:00 - 12:20">12:00 - 12:20</option>
+                                <option value="12:30 - 12:50">12:30 - 12:50</option>
+                                <option value="13:00 - 13:20">13:00 - 13:20</option>
+                                <option value="13:30 - 13:50">13:30 - 13:50</option>
+                                <option value="16:00 - 16:20">16:00 - 16:20</option>
+                                <option value="16:20 - 16:50">16:20 - 16:50</option>
+                                <option value="17:00 - 17:20">17:00 - 17:20</option>
+                                <option value="17:30 - 17:50">17:30 - 17:50</option>
+                                <option value="20:00 - 21:50">20:00 - 21:50</option>
+                                <option value="22:00 - 22:50">22:00 - 22:50</option>
+                            </select>
                         </div>
                     </div>
                     <!---->
@@ -127,8 +143,7 @@
                 </form>
             </div>
             <div class="col-md-6" id="img_box">
-                <img src="./assets/hero-img.jpg"
-                    alt="">
+                <img src="./assets/hero-img.jpg" alt="">
             </div>
         </div>
     </div>
@@ -138,5 +153,26 @@
 </body>
 <script src="scripts/appointment_form.js" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<script>
+
+    function filter() {
+        let filterBasis = document.getElementById("specialization").value;
+        let doctors = fetch("https://misty-poncho-cod.cyclic.app/doctor/").then(res => res.json()).then(data => {
+            let select = document.getElementById("doctor");
+            select.innerHTML="";
+            data.forEach(option => {
+                if (option.specialization == filterBasis) {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.name;
+                    optionElement.textContent = option.name;
+                    select.appendChild(optionElement);
+                }
+            });
+        }).catch(error => {
+            console.error('Error fetching options:', error);
+        });
+    }
+</script>
 
 </html>
