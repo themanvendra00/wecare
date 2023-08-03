@@ -51,10 +51,10 @@ function display(data) {
     if (element.status == "pending") {
       col8.innerHTML = `<button class="accept btn3" data-id=${
         element._id
-      } onclick="${accept(element._id)}">Approve</button>`;
+      } >Approve</button>`;
       col9.innerHTML = `<button class="reject btn3" data-id=${
         element._id
-      } onclick="${reject(element._id)}">Reject</button>`;
+      } ">Reject</button>`;
       col4.style.color = "orange";
     } else if (element.status == "approved") {
       col4.style.color = "green";
@@ -82,7 +82,7 @@ async function getData() {
   if (userId) {
     try {
       let res = await fetch(
-        `http://localhost:7500/appointment/doctor/get/${name}`,
+        `http://localhost:3000/appointment/doctor/get/${name}`,
         {
           method: "GET",
           headers: {
@@ -154,41 +154,41 @@ filter.addEventListener("change", () => {
   }
 });
 
-let data = JSON.parse(localStorage.getItem("userDetails")) || null;
-let email = data.email;
-function accept(id) {
-  fetch(`http://localhost:7500/appointment/update/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      email: `${email}`,
-      Authorization: token,
-    },
-    body: JSON.stringify({ status: "approved" }),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res) {
-        alert("Appintment Approved");
-        location.reload();
-      }
-    });
-}
-function reject(id) {
-  fetch(`http://localhost:7500/appointment/update/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      email: `${email}`,
-      Authorization: token,
-    },
-    body: JSON.stringify({ status: "rejected" }),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res) {
-        alert("Appointment Rejected");
-        location.reload();
-      }
-    });
-}
+// let data = JSON.parse(localStorage.getItem("userDetails")) || null;
+// let email = data.email;
+// function accept(id) {
+//   fetch(`http://localhost:3000/appointment/update/${id}`, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-Type": "application/json",
+//       email: `${email}`,
+//       Authorization: token,
+//     },
+//     body: JSON.stringify({ status: "approved" }),
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       if (res) {
+//         alert("Appintment Approved");
+//         location.reload();
+//       }
+//     });
+// }
+// function reject(id) {
+//   fetch(`http://localhost:3000/appointment/update/${id}`, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-Type": "application/json",
+//       email: `${email}`,
+//       Authorization: token,
+//     },
+//     body: JSON.stringify({ status: "rejected" }),
+//   })
+//     .then((res) => res.json())
+//     .then((res) => {
+//       if (res) {
+//         alert("Appointment Rejected");
+//         location.reload();
+//       }
+//     });
+// }

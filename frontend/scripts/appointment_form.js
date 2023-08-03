@@ -71,7 +71,7 @@ async function getAppointment(event) {
     console.log(appointment)
     let Data = JSON.parse(localStorage.getItem("userDetails"));
     let email = Data.email;
-    let response = await fetch("https://misty-poncho-cod.cyclic.app/appointment/create", {
+    let response = await fetch("http://localhost:3000/appointment/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

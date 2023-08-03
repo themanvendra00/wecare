@@ -1,6 +1,7 @@
 import { navbar, footer } from "../components/navbar.js";
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
+let loginBtn = document.getElementById('submit');
 
 navbarContainer.innerHTML = navbar();
 footerContainer.innerHTML = footer();
@@ -48,13 +49,14 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  loginBtn.setAttribute('value','Loading...');
 
   let loginDetails = {
     email,
     password,
   };
 
-  fetch("https://misty-poncho-cod.cyclic.app/user/login", {
+  fetch("http://localhost:3000/user/login", {
     method: "POST",
     body: JSON.stringify(loginDetails),
     headers: {
@@ -63,6 +65,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      loginBtn.setAttribute('value','Log in');
       console.log(data);
       if (data.message == "Invalid Email or Password") {
         Toast.fire({

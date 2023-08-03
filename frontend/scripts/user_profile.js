@@ -12,17 +12,15 @@ logo.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-
-
 // Dispaly user profile data
 let data = JSON.parse(localStorage.getItem("userDetails"));
 function dispalyUserDetails() {
-    document.getElementById("name").innerText = data.name;
-    document.getElementById("email").innerText=data.email;
-    document.getElementById("contact").innerText=data.contact;
-    document.getElementById("petName").innerText=data.petname;
-    document.getElementById("petType").innerText=data.pettype;
-    document.getElementById("petAge").innerText=`${data.petage} years`;
+  document.getElementById("name").innerText = data.name;
+  document.getElementById("email").innerText = data.email;
+  document.getElementById("contact").innerText = data.contact;
+  document.getElementById("petName").innerText = data.petname;
+  document.getElementById("petType").innerText = data.pettype;
+  document.getElementById("petAge").innerText = `${data.petage} years`;
 }
 dispalyUserDetails();
 

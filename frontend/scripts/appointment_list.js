@@ -69,7 +69,7 @@ async function getData() {
   let email = data.email;
   if (userId) {
     try {
-      let res = await fetch(`https://misty-poncho-cod.cyclic.app/appointment/get/${email}`, {
+      let res = await fetch(`http://localhost:3000/appointment/get/${email}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

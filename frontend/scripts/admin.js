@@ -37,7 +37,7 @@ btn.addEventListener("click", (event) => {
 
 async function addDoctor(obj) {
   try {
-    fetch("https://misty-poncho-cod.cyclic.app/doctor/register", {
+    fetch("http://localhost:3000/doctor/register", {
       method: "POST",
       body: JSON.stringify(obj),
       headers: {

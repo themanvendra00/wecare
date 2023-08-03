@@ -22,7 +22,7 @@ async function getData() {
   if (key) {
     try {
       let res = await fetch(
-        "https://misty-poncho-cod.cyclic.app/appointment/getall",
+        "http://localhost:3000/appointment/getall",
         {
           method: "GET",
           headers: {

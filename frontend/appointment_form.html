@@ -158,7 +158,7 @@
 
     function filter() {
         let filterBasis = document.getElementById("specialization").value;
-        let doctors = fetch("https://misty-poncho-cod.cyclic.app/doctor/").then(res => res.json()).then(data => {
+        let doctors = fetch("http://localhost:3000/doctor/").then(res => res.json()).then(data => {
             let select = document.getElementById("doctor");
             select.innerHTML="";
             data.forEach(option => {

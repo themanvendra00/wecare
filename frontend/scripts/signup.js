@@ -1,6 +1,7 @@
 import { navbar, footer } from "../components/navbar.js";
 let navbarContainer = document.getElementById("navbar");
 let footerContainer = document.getElementById("footer");
+let signupBtn = document.getElementById('submit');
 
 navbarContainer.innerHTML = navbar();
 footerContainer.innerHTML = footer();
@@ -51,6 +52,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   let contact = document.getElementById("contact").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  signupBtn.setAttribute('value', 'Loading...');
 
   let registerDetails = {
     name,
@@ -62,7 +64,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   };
 
 
-  fetch("https://misty-poncho-cod.cyclic.app/user/register", {
+  fetch("http://localhost:3000/user/register", {
     method: "POST",
     body: JSON.stringify(registerDetails),
     headers: {
@@ -71,7 +73,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.mess);
+      signupBtn.setAttribute('value', 'Sign Up');
       if (data.message === "User Already Exist") {
         Toast.fire({
           icon: "warning",
