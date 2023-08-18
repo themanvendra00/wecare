@@ -106,24 +106,21 @@ AppointmentRouter.post("/create", async (req, res) => {
 });
 
 AppointmentRouter.patch("/update/:id", async (req, res) => {
+  let num = Math.floor(Math.random() * (9999 - 1000) + 1000);
   let payload = req.body;
   let { status, name } = req.body;
   req.body.roomId = num;
   let paramid = req.params.id;
   let email = req.headers.email;
 
-  let num = Math.floor(Math.random() * (9999 - 1000) + 1000);
   try {
-    await AppointmentModel.findByIdAndUpdate(
-      { _id: paramid },
-      payload
-    );
+    await AppointmentModel.findByIdAndUpdate({ _id: paramid }, payload);
     res.send({ mess: "Status Updated" });
   } catch (error) {
     res.send({ Error: error.message });
   }
 
-  if (payload == "approved") {
+  if (payload.status == "approved") {
     let response = {
       body: {
         name,

@@ -49,13 +49,16 @@ function display(data) {
     let col9 = document.createElement("td");
     col4.innerText = element.status;
     if (element.status == "pending") {
-      col8.innerHTML = `<button class="accept btn3" data-id=${
-        element._id
-      } >Approve</button>`;
-      col9.innerHTML = `<button class="reject btn3" data-id=${
-        element._id
-      } ">Reject</button>`;
+      col8.innerHTML = `<button class="accept btn3" data-id=${element._id} >Approve</button>`;
+      col9.innerHTML = `<button class="reject btn3" data-id=${element._id} ">Reject</button>`;
       col4.style.color = "orange";
+      col8.querySelector(".accept").addEventListener("click", () => {
+        updateStatus(element._id, "approved");
+      });
+
+      col9.querySelector(".reject").addEventListener("click", () => {
+        updateStatus(element._id, "rejected");
+      });
     } else if (element.status == "approved") {
       col4.style.color = "green";
     } else {
@@ -71,6 +74,38 @@ function display(data) {
     row.append(col1, col6, col7, col2, col3, col5, col4, col8, col9);
     tbody.append(row);
   });
+}
+let userDetails = JSON.parse(localStorage.getItem("userDetails"));
+async function updateStatus(appointmentId, newStatus) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/appointment/update/${appointmentId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+          email: `${userDetails.email}`,
+        },
+        body: JSON.stringify({ status: newStatus, name: userDetails.name }),
+      }
+    );
+
+    if (response.ok) {
+      const updatedData = await response.json();
+      if (updatedData) {
+        Toast.fire({
+          icon: "info",
+          title: `Status ${newStatus}`,
+        });
+        location.reload();
+      }
+    } else {
+      console.error("Status update failed");
+    }
+  } catch (error) {
+    console.error("An error occurred", error);
+  }
 }
 
 // Fetch Data from database
@@ -129,18 +164,18 @@ login_icon.addEventListener("click", () => {
   }
 });
 
-let navRedirect = document.getElementById("navredirect");
+// let navRedirect = document.getElementById("navredirect");
 
-navRedirect.addEventListener("click", () => {
-  if (userDetails) {
-    window.location.href = "appointment_form.html";
-  } else {
-    Toast.fire({
-      icon: "error",
-      title: "Please Login again!",
-    });
-  }
-});
+// navRedirect.addEventListener("click", () => {
+//   if (userDetails) {
+//     window.location.href = "appointment_form.html";
+//   } else {
+//     Toast.fire({
+//       icon: "error",
+//       title: "Please Login again!",
+//     });
+//   }
+// });
 
 let filter = document.getElementById("filter");
 filter.addEventListener("change", () => {
@@ -153,42 +188,3 @@ filter.addEventListener("change", () => {
     display(filterData);
   }
 });
-
-// let data = JSON.parse(localStorage.getItem("userDetails")) || null;
-// let email = data.email;
-// function accept(id) {
-//   fetch(`http://localhost:3000/appointment/update/${id}`, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//       email: `${email}`,
-//       Authorization: token,
-//     },
-//     body: JSON.stringify({ status: "approved" }),
-//   })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       if (res) {
-//         alert("Appintment Approved");
-//         location.reload();
-//       }
-//     });
-// }
-// function reject(id) {
-//   fetch(`http://localhost:3000/appointment/update/${id}`, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//       email: `${email}`,
-//       Authorization: token,
-//     },
-//     body: JSON.stringify({ status: "rejected" }),
-//   })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       if (res) {
-//         alert("Appointment Rejected");
-//         location.reload();
-//       }
-//     });
-// }
